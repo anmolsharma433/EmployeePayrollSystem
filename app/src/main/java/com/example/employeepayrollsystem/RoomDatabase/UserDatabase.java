@@ -4,9 +4,11 @@ import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
-import androidx.room.Room
+import androidx.room.Room;
 
-@Database(entities = Customer.class,exportSchema = false,version = 2)
+import com.example.employeepayrollsystem.ModelClasses.EmployeeData;
+
+@Database(entities = EmployeeData.class,exportSchema = false,version = 2)
 public abstract class UserDatabase extends RoomDatabase{
     public static final String Database_name = "Employee_Payroll";
     private static  UserDatabase uInstance;
@@ -20,6 +22,8 @@ public abstract class UserDatabase extends RoomDatabase{
         }
         return uInstance;
     }
+
+    // *** have to add database object interface
 
 }
 

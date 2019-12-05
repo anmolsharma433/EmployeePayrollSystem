@@ -1,11 +1,11 @@
-package com.example.employeepayrollsystem.RoomDatabase;
+package com.example.employeepayrollsystem.ModelClasses;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Customer_Info")
-public class Customer {
+public class EmployeeData {
     @PrimaryKey(autoGenerate = true)
     private int cid;
 
@@ -23,6 +23,18 @@ public class Customer {
 
     @ColumnInfo(name = "Date_Of_Birth")
     private String dob;
+
+
+    //Constructor
+
+    public EmployeeData(String firstname, String lastname, String emailId, String dob) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.emailId = emailId;
+        this.dob = dob;
+    }
+
+
 
 
     //Getter and Setter added
