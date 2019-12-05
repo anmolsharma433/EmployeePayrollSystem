@@ -1,5 +1,6 @@
 package com.example.employeepayrollsystem.RoomDatabase;
 
-public class UserDatabase {
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 
-}
+@Database(entities = )
