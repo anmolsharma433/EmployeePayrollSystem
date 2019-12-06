@@ -23,6 +23,12 @@ public class EmployeeData {
 
     @ColumnInfo(name = "Date_Of_Birth")
     private String dob;
+    @columnInfo(name = "Employee_Type")
+    private enum employeetype {
+        case : Full_Time;
+        case : Part_Time;
+        case : Commission_base_PartTime;
+    }
 
 
     //Constructor
