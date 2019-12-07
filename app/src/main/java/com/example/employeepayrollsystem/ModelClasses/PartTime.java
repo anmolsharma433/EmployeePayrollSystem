@@ -14,6 +14,7 @@ public  class PartTime extends  EmployeeData {
 
 
 
+
     public double getRate() {
         return rate;
     }

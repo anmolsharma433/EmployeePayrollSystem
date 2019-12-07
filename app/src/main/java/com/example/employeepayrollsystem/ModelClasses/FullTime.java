@@ -4,13 +4,9 @@ public class FullTime extends EmployeeData {
     private double salary;
     private double bonus;
 
-    public FullTime()
-    {
-        super();
 
-    }
 
-    public FullTime(String name, int age, double salary, double bonus) {
+    public FullTime(String name, Integer age, double salary, double bonus) {
         super(name, age);
         this.salary = salary;
         this.bonus = bonus;

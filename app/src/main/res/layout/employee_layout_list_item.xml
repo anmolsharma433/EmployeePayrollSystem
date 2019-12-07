@@ -6,8 +6,9 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:padding="10dp"
         android:id="@+id/firstImage"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/ic_action_employee"/>
 
         <TextView
             android:layout_width="wrap_content"

@@ -21,6 +21,8 @@ public class Employee_rv extends AppCompatActivity {
     private ArrayList<String> mImageUrls = new ArrayList<>();
     String json,temps;
     ArrayList<EmployeeData> empdatalist;
+    Singleton myobj = Singleton.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,14 +40,13 @@ public class Employee_rv extends AppCompatActivity {
 
                 temps = jsonarray.get(i).toString();
                 EmployeeData employee = gson.fromJson(temps,EmployeeData.class);
-                empdatalist.add(employee);
-
+                myobj.addEmployee(employee);
 
 
             }
-        }catch (JSONException e)
-        {
-            e.printStackTrace();
+        }catch (JSONException e) {
+
+            initRecycleView();
         }
 
 
@@ -60,8 +61,11 @@ public class Employee_rv extends AppCompatActivity {
     }
     private  void initRecycleView()
     {
+
+
         RecyclerView recyclerView = findViewById(R.id.employee_rv);
-        EmployeeRVAdapter employeeRVAdapter = new EmployeeRVAdapter(mName,mImageUrls,this);
+        ArrayList<EmployeeData> mylist = myobj.returnemplst();
+        EmployeeRVAdapter employeeRVAdapter = new EmployeeRVAdapter(mylist,this);
         recyclerView.setAdapter(employeeRVAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

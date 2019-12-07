@@ -5,10 +5,7 @@ import android.os.Parcel;
 public class CommissionBasedPartTime extends PartTime {
     private double commissionPercentage;
 
-    public CommissionBasedPartTime()
-    {
-        super();
-    }
+
 
     public CommissionBasedPartTime(String name, int age, double rate, double hoursWorked, double commissionPercentage) {
         super(name, age, rate, hoursWorked);

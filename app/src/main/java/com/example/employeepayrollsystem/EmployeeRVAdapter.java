@@ -1,6 +1,7 @@
 package com.example.employeepayrollsystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.employeepayrollsystem.ModelClasses.EmployeeData;
 
 import java.util.ArrayList;
 
@@ -20,13 +22,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EmployeeRVAdapter extends RecyclerView.Adapter<EmployeeRVAdapter.ViewHolder> {
     private static final String TAG = "EmployeeRVAdapter";
-    private ArrayList<String> mImageName  = new ArrayList<>();
-    private ArrayList<String> mImage  = new ArrayList<>();
+    private ArrayList<EmployeeData> mEmpList = new ArrayList<>();
     private Context mContext;
 
-    public EmployeeRVAdapter(ArrayList<String> mImageName, ArrayList<String> mImage, Context mContext) {
-        this.mImageName = mImageName;
-        this.mImage = mImage;
+    public EmployeeRVAdapter(ArrayList<EmployeeData> mImageName, Context mContext) {
+        this.mEmpList = mImageName;
         this.mContext = mContext;
     }
 
@@ -43,21 +43,24 @@ public class EmployeeRVAdapter extends RecyclerView.Adapter<EmployeeRVAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Log.d(TAG,"onBindViewHolder: called");
-        Glide.with(mContext).asBitmap().load(mImage.get(position)).into(holder.image);
-         holder.tv1.setText(mImageName.get(position));
+        final EmployeeData myemp = mEmpList.get(position);
+         holder.tv1.setText(myemp.getName());
 
          holder.rv1.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 Log.d(TAG,"onClick: clicked on"+mImageName.get(position));
-                 Toast.makeText(mContext,mImageName.get(position),Toast.LENGTH_SHORT).show();
+                 Intent myintent = new Intent(mContext,EmpDetailsActivity.class);
+                 myintent.putExtra("empobject",myemp);
+                 mContext.startActivity(myintent);
+
+//                 Toast.makeText(mContext, mEmpList.get(position).getEmployeeID(),Toast.LENGTH_SHORT).show();
              }
          });
     }
 
     @Override
     public int getItemCount() {
-        return mImageName.size();
+        return mEmpList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
