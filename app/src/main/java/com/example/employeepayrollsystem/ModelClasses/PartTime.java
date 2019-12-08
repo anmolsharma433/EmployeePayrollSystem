@@ -6,7 +6,7 @@ public  class PartTime extends  EmployeeData {
 
 
 
-    public PartTime(String name, Integer age, double rate, double hoursWorked) {
+    public PartTime(String age, String name, double rate, double hoursWorked) {
         super(name,age);
         this.rate = rate;
         this.hoursWorked = hoursWorked;

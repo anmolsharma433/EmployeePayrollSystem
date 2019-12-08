@@ -5,8 +5,8 @@ public class FixedBasedPartTime extends PartTime{
 
 
 
-    public FixedBasedPartTime(String name, int age, double rate, double hoursWorked, double fixedAmount) {
-        super(name, age, rate, hoursWorked);
+    public FixedBasedPartTime(String name, String age, double rate, double hoursWorked, double fixedAmount) {
+        super( name,age, rate, hoursWorked);
         this.fixedAmount = fixedAmount;
     }
 

@@ -1,14 +1,12 @@
 package com.example.employeepayrollsystem.ModelClasses;
 
-import android.os.Parcel;
-
 public class CommissionBasedPartTime extends PartTime {
     private double commissionPercentage;
 
 
 
-    public CommissionBasedPartTime(String name, int age, double rate, double hoursWorked, double commissionPercentage) {
-        super(name, age, rate, hoursWorked);
+    public CommissionBasedPartTime(String name, String age, double rate, double hoursWorked, double commissionPercentage) {
+        super( name,age, rate, hoursWorked);
         this.commissionPercentage = commissionPercentage;
     }
 

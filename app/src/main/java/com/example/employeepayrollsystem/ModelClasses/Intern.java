@@ -5,7 +5,7 @@ public class Intern extends EmployeeData{
 
 
 
-    public Intern(String name, Integer age, String schoolName) {
+    public Intern(String name, String age, String schoolName) {
         super(name, age);
         this.schoolName = schoolName;
     }

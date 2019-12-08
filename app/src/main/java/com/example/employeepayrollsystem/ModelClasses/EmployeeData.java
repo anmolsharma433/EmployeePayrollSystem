@@ -36,7 +36,7 @@ public class EmployeeData implements Parcelable {
     private String emailId;
     @SerializedName("age")
     @Expose
-    private Integer age;
+    private String age;
 
 
 
@@ -44,7 +44,7 @@ public class EmployeeData implements Parcelable {
 
     //Constructor
 
-    public EmployeeData(String name, Integer age) {
+    public EmployeeData(String name, String age) {
         this.name = name;
 //        this.lastname = lastname;
 //        this.emailId = emailId;
@@ -63,7 +63,7 @@ public class EmployeeData implements Parcelable {
         if (in.readByte() == 0) {
             age = null;
         } else {
-            age = in.readInt();
+            age = (in.readString());
         }
     }
 
@@ -111,11 +111,11 @@ public class EmployeeData implements Parcelable {
         this.emailId = emailId;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -139,7 +139,7 @@ public class EmployeeData implements Parcelable {
             dest.writeByte((byte) 0);
         } else {
             dest.writeByte((byte) 1);
-            dest.writeInt(age);
+            dest.writeString(age);
         }
     }
 

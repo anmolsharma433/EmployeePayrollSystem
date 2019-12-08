@@ -17,6 +17,6 @@ public class EmpDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_emp_details);
         mytext = findViewById(R.id.textempdetail);
         EmployeeData empnewdata = getIntent().getParcelableExtra("empobject");
-        mytext.setText(empnewdata.getName() + "\n" +empnewdata.getEmailId());
+        mytext.setText(empnewdata.getName() + "\n" +empnewdata.getAge());
     }
 }
